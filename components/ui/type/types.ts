@@ -1,3 +1,5 @@
+import { KeyboardTypeOptions } from "react-native";
+
 export interface InputType {
   label?: string;
   value?: string;
@@ -7,11 +9,14 @@ export interface InputType {
   secureTextEntry?: boolean;
   placeholder?: string;
   placeholderTextColor?: string;
+  keyboardType?: KeyboardTypeOptions;
+  multiline?: boolean;
   onPress?: () => void;
 }
 
 export interface ButtonType {
   children?: React.ReactNode;
+  className?: string;
   onPress?: () => void;
     
 }

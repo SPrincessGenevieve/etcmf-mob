@@ -1,9 +1,19 @@
 import Button from "@/components/ui/Button";
+import MapContent from "@/components/ui/MapContent";
 import { Captions, SquarePen } from "lucide-react-native";
 import React from "react";
 import { Image, Text, View } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function dashboard() {
+  const router = useRouter()
+
+  const handleCiteTicket = () =>{
+    router.push("/(screen)/cite_option/cite_option")
+  }
+
+
+
   return (
     <View className="w-full h-full bg-white">
       <View className="border-b-[#0000001e] shadow-black shadow-2xl border-b s flex flex-row h-[10%] w-full mt-[5%]">
@@ -26,9 +36,11 @@ export default function dashboard() {
       </View>
       <View className="p-8  flex gap-4">
         <Text className="text-[#494747]">Your Location</Text>
-        <View className="w-full border border-[#3E7C1F] rounded-2xl h-[60%]"></View>
+        <View className="w-full border border-[#3E7C1F] rounded-2xl h-[60%]">
+          <MapContent></MapContent>
+        </View>
         <View className="mt-[5%] flex gap-4">
-          <Button>
+          <Button onPress={handleCiteTicket}>
             <View className="flex flex-row gap-2">
               <SquarePen color={"white"}></SquarePen>
               <Text className="text-white">Cite a Ticket</Text>

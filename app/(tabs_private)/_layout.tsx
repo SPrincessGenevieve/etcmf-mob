@@ -38,7 +38,7 @@ export default function TabPrivateLayout() {
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
-          tabBarStyle: { }, // Specific hide on this screen
+          tabBarStyle: {}, // Specific hide on this screen
         }}
       />
       <Tabs.Screen
@@ -46,10 +46,8 @@ export default function TabPrivateLayout() {
         options={{
           headerShown: false,
           title: "Record",
-          tabBarIcon: ({ color }) => (
-            <NotebookPen color={color}></NotebookPen>
-          ),
-          tabBarStyle: { }, // Specific hide on this screen
+          tabBarIcon: ({ color }) => <NotebookPen color={color}></NotebookPen>,
+          tabBarStyle: {}, // Specific hide on this screen
         }}
       />
       <Tabs.Screen
@@ -57,12 +55,11 @@ export default function TabPrivateLayout() {
         options={{
           headerShown: false,
           title: "Settings",
-          tabBarIcon: ({ color }) => (
-           <Settings color={color}></Settings>
-          ),
-          tabBarStyle: { }, // Specific hide on this screen
+          tabBarIcon: ({ color }) => <Settings color={color}></Settings>,
+          tabBarStyle: {}, // Specific hide on this screen
         }}
       />
+     
     </Tabs>
   );
 }

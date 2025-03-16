@@ -14,12 +14,16 @@ export default function Input({
   secureTextEntry,
   placeholder,
   placeholderTextColor,
+  keyboardType,
+  multiline,
 }: InputType) {
   return (
     <View className="flex gap-2">
       <Text className="font-bold">{label}</Text>
       <View className="relative w-full h-auto flex justify-center">
         <TextInput
+          multiline={multiline}
+          keyboardType={keyboardType}
           placeholder={placeholder}
           placeholderTextColor={"#C5C6CC"}
           secureTextEntry={secureTextEntry}

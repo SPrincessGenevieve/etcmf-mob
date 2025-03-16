@@ -31,7 +31,7 @@ export default function LoginScreen() {
 
   const handleLogin = () => {
     console.log("CLICKED")
-    router.push("/dashboard");
+    router.push("/(screen)/ocr/ocr_screen_5");
   };
   return (
     <ScrollView className="bg-white">
