@@ -7,50 +7,60 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { NotebookPen, Settings } from "lucide-react-native";
 
-export default function TabLayout() {
+export default function TabPrivateLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarActiveTintColor: "#3E7C1F",
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
             position: "absolute",
-            backgroundColor: "transparent",  // Transparent background
           },
           android: {
             position: "absolute",
-            backgroundColor: "transparent",  // Transparent background
           },
           default: {},
         }),
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
           headerShown: false,
-          title: "Home",
+          title: "Dashboard",
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
-          tabBarStyle: { display: "none" }, // Specific hide on this screen
+          tabBarStyle: { }, // Specific hide on this screen
         }}
       />
       <Tabs.Screen
-        name="forgot_password"
+        name="citation"
         options={{
           headerShown: false,
-          title: "Forgot Password",
+          title: "Record",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="key.fill" color={color} />
+            <NotebookPen color={color}></NotebookPen>
           ),
-          tabBarStyle: { display: "none" }, // Specific hide on this screen
+          tabBarStyle: { }, // Specific hide on this screen
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          headerShown: false,
+          title: "Settings",
+          tabBarIcon: ({ color }) => (
+           <Settings color={color}></Settings>
+          ),
+          tabBarStyle: { }, // Specific hide on this screen
         }}
       />
     </Tabs>
