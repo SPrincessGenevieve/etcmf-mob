@@ -1,4 +1,4 @@
-import { KeyboardTypeOptions } from "react-native";
+import { DataDetectorTypes, KeyboardTypeOptions, TextInputProps } from "react-native";
 
 export interface InputType {
   label?: string;
@@ -11,7 +11,11 @@ export interface InputType {
   placeholderTextColor?: string;
   keyboardType?: KeyboardTypeOptions;
   multiline?: boolean;
+  numberOfLines?: number;
   onPress?: () => void;
+  className?: string;
+  dataDetectorTypes?: DataDetectorTypes | DataDetectorTypes[] | undefined;
+
 }
 
 export interface ButtonType {

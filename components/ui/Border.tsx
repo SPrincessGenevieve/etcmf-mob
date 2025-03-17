@@ -17,7 +17,7 @@ export default function Border({ label }: BorderType) {
         shadowRadius: 3.84,
         elevation: 5,
       }}
-      className="bg-[#E4FAD9] shadow-black shadow-2xl  p-4 w-full flex flex-row h-[5%] gap-4 items-center"
+      className="bg-[#E4FAD9] shadow-black shadow-2xl  p-4 w-full flex flex-row h-[50px] gap-4 items-center"
     >
       <Check color={"#2dbb2d"}></Check>
       <Text className=" text-[#787878] font-semibold">

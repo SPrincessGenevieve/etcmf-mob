@@ -16,6 +16,9 @@ export default function Input({
   placeholderTextColor,
   keyboardType,
   multiline,
+  numberOfLines,
+  className,
+  dataDetectorTypes,
 }: InputType) {
   return (
     <View className="flex gap-2">
@@ -23,11 +26,13 @@ export default function Input({
       <View className="relative w-full h-auto flex justify-center">
         <TextInput
           multiline={multiline}
+          numberOfLines={numberOfLines}
           keyboardType={keyboardType}
           placeholder={placeholder}
+          dataDetectorTypes={dataDetectorTypes}
           placeholderTextColor={"#C5C6CC"}
           secureTextEntry={secureTextEntry}
-          className="text-left border border-[#3E7C1F] rounded-2xl px-4 pr-10 h-16 text-[14px]"
+          className={`text-left border border-[#3E7C1F] rounded-2xl px-4 pr-10 h-16 text-[14px] ${className}`}
           value={value}
           onChangeText={onChangeText}
         ></TextInput>
