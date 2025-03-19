@@ -66,6 +66,10 @@ export default function RootLayout() {
             name="(screen)/ocr/ocr_screen_5"
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="(screen)/ocr/ocr_screen_6"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
       </UserProvider>

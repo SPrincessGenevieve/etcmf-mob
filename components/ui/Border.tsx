@@ -4,9 +4,10 @@ import { View, Text } from "react-native";
 
 interface BorderType {
   label?: string;
+  children?: React.ReactNode;
 }
 
-export default function Border({ label }: BorderType) {
+export default function Border({ label, children }: BorderType) {
   return (
     <View
       style={{
@@ -19,7 +20,8 @@ export default function Border({ label }: BorderType) {
       }}
       className="bg-[#E4FAD9] shadow-black shadow-2xl  p-4 w-full flex flex-row h-[50px] gap-4 items-center"
     >
-      <Check color={"#2dbb2d"}></Check>
+      <View>{children}</View>
+      
       <Text className=" text-[#787878] font-semibold">
         {label}
       </Text>

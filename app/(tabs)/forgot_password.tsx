@@ -2,8 +2,15 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function ForgotPassword() {
+  const router = useRouter()  
+  
+  const handleNext = () =>{
+    router.push('/')
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{
@@ -23,7 +30,7 @@ export default function ForgotPassword() {
         <View className="w-full mt-5 flex gap-2">
           <Input label="Email" placeholder="example@gmail.com"></Input>
           <Text className="text-center font-semibold mt-10">Resend Email</Text>
-          <Button>
+          <Button onPress={handleNext}>
             <Text className="text-white">Send Email</Text>
           </Button>
         </View>

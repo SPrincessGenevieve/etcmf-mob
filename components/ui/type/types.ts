@@ -14,6 +14,7 @@ export interface InputType {
   numberOfLines?: number;
   onPress?: () => void;
   className?: string;
+  classNameText?: string;
   dataDetectorTypes?: DataDetectorTypes | DataDetectorTypes[] | undefined;
 
 }
@@ -24,3 +25,4 @@ export interface ButtonType {
   onPress?: () => void;
     
 }
+

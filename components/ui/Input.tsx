@@ -14,6 +14,7 @@ export default function Input({
   secureTextEntry,
   placeholder,
   placeholderTextColor,
+  classNameText,
   keyboardType,
   multiline,
   numberOfLines,
@@ -22,7 +23,7 @@ export default function Input({
 }: InputType) {
   return (
     <View className="flex gap-2">
-      <Text className="font-bold">{label}</Text>
+      <Text className={`font-bold ${classNameText}`}>{label}</Text>
       <View className="relative w-full h-auto flex justify-center">
         <TextInput
           multiline={multiline}
