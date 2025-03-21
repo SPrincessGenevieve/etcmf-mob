@@ -21,7 +21,7 @@ export default function Select({
       <SelectList
         boxStyles={{
           height: 55,
-          borderColor: "#3E7C1F",
+          borderColor: "#1b7751",
           borderRadius: 15,
           display: "flex",
           alignItems: "center",

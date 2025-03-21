@@ -29,14 +29,14 @@ export default function Check({
           </View>
           <View className="">
             {!isChecked ? (
-              <View className="h-6 w-6 rounded-md border border-[#3E7C1F]"></View>
+              <View className="h-6 w-6 rounded-md border border-[#1b7751]"></View>
             ) : (
-              <View className="h-6 w-6 rounded-md border border-[#3E7C1F] bg-[#3E7C1F] flex items-center justify-center">
+              <View className="h-6 w-6 rounded-md border border-[#1b7751] bg-[#1b7751] flex items-center justify-center">
                 <CheckIcon size={15} color={"white"}></CheckIcon>
               </View>
             )}
           </View>
-          <Text className="text-[16px]">{label}</Text>
+          <Text className="text-[14px]">{label}</Text>
         </View>
       </TouchableOpacity>
     </View>

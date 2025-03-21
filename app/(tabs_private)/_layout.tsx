@@ -15,7 +15,7 @@ export default function TabPrivateLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#3E7C1F",
+        tabBarActiveTintColor: "#1b7751",
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,

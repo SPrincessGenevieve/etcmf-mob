@@ -1,27 +1,24 @@
 import Border from "@/components/ui/Border";
 import Calendar from "@/components/ui/Calendar";
 import Input from "@/components/ui/Input";
-import { CalendarDays, CalendarSearch, Check, X } from "lucide-react-native";
-import React, { useState } from "react";
-import {
-  ScrollView,
-  Text,
-  View,
-  Modal,
-  Alert,
-  TouchableOpacity,
-} from "react-native";
+import { CalendarDays, BusFront } from "lucide-react-native";
+import React, { useState, useEffect } from "react";
+import { ScrollView, Text, View, Modal, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import CalendarPicker from "react-native-calendar-picker";
 import { useUserContext } from "@/app/context/UserContext";
 import Button from "@/components/ui/Button";
 import Select from "@/components/ui/Select";
 import { GenderData } from "@/components/data/lib";
+import * as Location from "expo-location"; // Import Expo Location
 
 export default function oOcrScreen5() {
   const router = useRouter();
   const [modalVisible, setModalVisible] = useState(false);
   const [genderSelected, setGenderSelected] = useState("");
+  const [violationTime, setViolationTime] = useState("");
+  const [violationLocation, setViolationLocation] = useState("");
+
   const handleCalendar = () => {
     setModalVisible(!modalVisible);
   };
@@ -31,6 +28,45 @@ export default function oOcrScreen5() {
   };
 
   const { selected_bday } = useUserContext();
+
+  // Get current time
+  useEffect(() => {
+    const currentTime = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    setViolationTime(currentTime);
+  }, []);
+
+  // Get current location
+  useEffect(() => {
+    const getLocation = async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setViolationLocation("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      const { latitude, longitude } = location.coords;
+
+      // Reverse geocode the latitude and longitude to get a readable address
+      let reverseGeocode = await Location.reverseGeocodeAsync({
+        latitude,
+        longitude,
+      });
+
+      if (reverseGeocode.length > 0) {
+        const { city, region, country } = reverseGeocode[0];
+        setViolationLocation(`${city}, ${region}, ${country}`);
+      } else {
+        setViolationLocation("Unable to retrieve location");
+      }
+    };
+
+    getLocation();
+  }, []);
+
   return (
     <ScrollView className="bg-white h-auto">
       <Modal
@@ -60,7 +96,7 @@ export default function oOcrScreen5() {
           </Text>
         </View>
         <Border
-          children={<Check color={"#2dbb2d"}></Check>}
+          children={<BusFront color={"#fff"}></BusFront>}
           label="Personal Information"
         ></Border>
         <View className="p-8 flex gap-2">
@@ -85,7 +121,7 @@ export default function oOcrScreen5() {
               </View>
               <View className="absolute right-0 bottom-0 flex h-[50%] pr-5">
                 <TouchableOpacity className="" onPress={handleCalendar}>
-                  <CalendarDays color={"#3E7C1F"}></CalendarDays>
+                  <CalendarDays color={"#1b7751"}></CalendarDays>
                 </TouchableOpacity>
               </View>
             </View>
@@ -108,9 +144,9 @@ export default function oOcrScreen5() {
           <Input classNameText="text-gray-400" label="Contact Number *"></Input>
         </View>
 
-        {/* VEHIBLE INFORMATION */}
+        {/* VEHICLE INFORMATION */}
         <Border
-          children={<Check color={"#2dbb2d"}></Check>}
+          children={<BusFront color={"#fff"}></BusFront>}
           label="Vehicle Information"
         ></Border>
         <View className="p-8 flex gap-2">
@@ -128,20 +164,26 @@ export default function oOcrScreen5() {
 
         {/* OFFICER INFORMATION */}
         <Border
-          children={<Check color={"#2dbb2d"}></Check>}
+          children={<BusFront color={"#fff"}></BusFront>}
           label="Officer Information"
         ></Border>
         <View className="p-8 flex gap-2">
           <Input
+            editable={false}
+            value="Jayde Mike Engracia"
             classNameText="text-gray-400"
             label="Apprehending Officer"
           ></Input>
           <Input
             classNameText="text-gray-400"
+            editable={false}
+            value={violationTime}
             label="Time of Violation"
           ></Input>
           <Input
             classNameText="text-gray-400"
+            editable={false}
+            value={violationLocation}
             label="Place of Violation"
           ></Input>
           <Button onPress={handleNext} className="mt-[15px]">

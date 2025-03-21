@@ -20,12 +20,14 @@ export default function Input({
   numberOfLines,
   className,
   dataDetectorTypes,
+  editable,
 }: InputType) {
   return (
     <View className="flex gap-2">
       <Text className={`font-bold ${classNameText}`}>{label}</Text>
       <View className="relative w-full h-auto flex justify-center">
         <TextInput
+          editable={editable}
           multiline={multiline}
           numberOfLines={numberOfLines}
           keyboardType={keyboardType}
@@ -33,7 +35,7 @@ export default function Input({
           dataDetectorTypes={dataDetectorTypes}
           placeholderTextColor={"#C5C6CC"}
           secureTextEntry={secureTextEntry}
-          className={`text-left border border-[#3E7C1F] rounded-2xl px-4 pr-10 h-16 text-[14px] ${className}`}
+          className={`text-left border border-[#1b7751] rounded-2xl px-4 pr-10 h-16 text-[14px] ${className}`}
           value={value}
           onChangeText={onChangeText}
         ></TextInput>

@@ -7,6 +7,7 @@ export interface InputType {
   open?: boolean;
   isPassword?: boolean;
   secureTextEntry?: boolean;
+  editable?: boolean;
   placeholder?: string;
   placeholderTextColor?: string;
   keyboardType?: KeyboardTypeOptions;

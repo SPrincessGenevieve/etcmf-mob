@@ -25,8 +25,8 @@ export default function CiteOption() {
         <Button onPress={handleUseOCR}>
           <Text className="text-white">Use OCR</Text>
         </Button>
-        <Button className="bg-white border border-[#3E7C1F]">
-          <Text className="text-[#3E7C1F]">Manual Data Entry</Text>
+        <Button className="bg-white border border-[#1b7751]">
+          <Text className="text-[#1b7751]">Manual Data Entry</Text>
         </Button>
       </View>
     </View>

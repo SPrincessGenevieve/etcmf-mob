@@ -11,18 +11,17 @@ export default function Border({ label, children }: BorderType) {
   return (
     <View
       style={{
-        backgroundColor: "#E4FAD9",
-        shadowColor: "black",
+        shadowColor: "#2dbb2d",
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
       }}
-      className="bg-[#E4FAD9] shadow-black shadow-2xl  p-4 w-full flex flex-row h-[50px] gap-4 items-center"
+      className="bg-[#1b7751] text-white shadow-black shadow-2xl  p-4 w-full flex flex-row h-[50px] gap-4 items-center"
     >
       <View>{children}</View>
       
-      <Text className=" text-[#787878] font-semibold">
+      <Text className=" text-[#fff] font-semibold">
         {label}
       </Text>
     </View>
